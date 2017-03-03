@@ -5,14 +5,51 @@ $(document).ready(function() {
     $("#search").click(function() {
         $("#output").empty();
         $("#display").empty();
+        $("#outputDad").hide();
         $.ajax({
             url: "https://launchlibrary.net/1.1/launch/next/"+document.getElementById("numlaunches").value,
             type: 'GET',
             crossDomain: true,
             dataType: 'json',
-            success: function (result) {
+            success: function (result, request) {
 
-                output(result)
+                output(result, "manual")
+            },
+            error: function () {
+                document.getElementById("output").innerHTML = "Failed!"
+            }
+        })
+    });
+
+    $("#search5").click(function() {
+        $("#output").empty();
+        $("#display").empty();
+        $.ajax({
+            url: "https://launchlibrary.net/1.1/launch/next/5",
+            type: 'GET',
+            crossDomain: true,
+            dataType: 'json',
+            success: function (result, request) {
+
+                output(result, 5)
+            },
+            error: function () {
+                document.getElementById("output").innerHTML = "Failed!"
+            }
+        })
+    });
+
+    $("#search10").click(function() {
+        $("#output").empty();
+        $("#display").empty();
+        $.ajax({
+            url: "https://launchlibrary.net/1.1/launch/next/10",
+            type: 'GET',
+            crossDomain: true,
+            dataType: 'json',
+            success: function (result, request) {
+
+                output(result, 10)
             },
             error: function () {
                 document.getElementById("output").innerHTML = "Failed!"
@@ -21,19 +58,52 @@ $(document).ready(function() {
     })
 });
 
-function output(result){
-    for (var i = 0; i < document.getElementById("numlaunches").value; i++) {
-        var button = document.createElement("button");
-        button.innerHTML = result.launches[i].name;
-        button.id = "button"+i;
-        document.getElementById("output").appendChild(button);
-        //button.onclick = function(){display(button.id, result)}
+function output(result, request){
+    if (typeof request === "string") {
+        for (var i = 0; i < document.getElementById("numlaunches").value; i++) {
+            var button = document.createElement("button");
+            button.innerHTML = result.launches[i].name;
+            button.id = "button" + i;
+            var tempId = "button" + i;
+            button.onclick = function (tempId, result) {
+                return function () {
+                    display(tempId, result)
+                }
+            }(tempId, result);
+            document.getElementById("output").appendChild(button);
+        }
+        for (var i = 0; i < document.getElementById("numlaunches").value; i++) {
+            document.getElementById("button" + i).className = " btn btn-success"
+        }
+        var header = document.createElement("h4");
+        var headContent = document.createTextNode("Results");
+
+        document.getElement
     }
+
+    else{
+        for (var i = 0; i < request; i++) {
+            var button = document.createElement("button");
+            button.innerHTML = result.launches[i].name;
+            button.id = "button" + i;
+            var tempId = "button" + i;
+            button.onclick = function (tempId, result) {
+                return function () {
+                    display(tempId, result)
+                }
+            }(tempId, result);
+            document.getElementById("output").appendChild(button);
+        }
+        for (var i = 0; i < request; i++) {
+            document.getElementById("button" + i).className = " btn btn-success"
+        }
+    }
+
 }
 
-//separate onclick iteration, overwritten by each iteration^^?
 
 function display(id, result){
+
     var realID = id.substring(6, id.length);
 
     $("#display").empty();
@@ -53,6 +123,7 @@ function display(id, result){
     else{
         document.getElementById("display").innerHTML = result.launches[realID].missions[0].name + " is launching on a " + result.launches[realID].rocket.name + " rocket. It will launch between " + result.launches[realID].windowstart + " and " + result.launches[realID].windowend + ". " + result.launches[realID].missions[0].description
     }
+    $("#outputDad").show();
 }
 
 

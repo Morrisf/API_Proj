@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="scripts.js"></script>
     <link href="styles.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -9,9 +10,21 @@
     <title>spaceSite</title>
 </head>
 <body>
-<input type="text" id="numlaunches">
-<button id="search">Search</button>
-<div id="output"></div>
+<div class="form-group">
+    <label for="numlaunches">Search for Upcoming Launches</label>
+    <input type="text" class="form-control" id="numlaunches">
+</div>
+<button type="button" id="search" class=" btn btn-primary">Search</button>
+
+<h4>Quick Search</h4>
+<button type="button" id="search5" class=" btn btn-primary">Next 5 Launches</button>
+<button type="button" id="search10" class=" btn btn-primary">Next 10 Launches</button>
+
+<div class="container" id="outputDad">
+    <h4>Results</h4>
+    <div id="output" class="btn-group-vertical"></div>
+</div>
+
 
 <div id="display"></div>
 
