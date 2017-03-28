@@ -57,7 +57,7 @@ $(document).ready(function() {
         })
     })
 });
-
+//change()()()
 function output(result, request){
     if (typeof request === "string") {
         for (var i = 0; i < document.getElementById("numlaunches").value; i++) {
