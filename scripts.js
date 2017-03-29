@@ -5,7 +5,7 @@ $(document).ready(function() {
     $("#search").click(function() {
         $("#output").empty();
         $("#display").empty();
-        $("#outputDad").hide();
+
         $.ajax({
             url: "https://launchlibrary.net/1.1/launch/next/"+document.getElementById("numlaunches").value,
             type: 'GET',
@@ -57,7 +57,6 @@ $(document).ready(function() {
         })
     })
 });
-//change()()()
 function output(result, request){
     if (typeof request === "string") {
         for (var i = 0; i < document.getElementById("numlaunches").value; i++) {
@@ -78,7 +77,6 @@ function output(result, request){
         var header = document.createElement("h4");
         var headContent = document.createTextNode("Results");
 
-        document.getElement
     }
 
     else{
@@ -95,7 +93,7 @@ function output(result, request){
             document.getElementById("output").appendChild(button);
         }
         for (var i = 0; i < request; i++) {
-            document.getElementById("button" + i).className = " btn btn-success"
+            document.getElementById("button" + i).className = " btn btn-primary"
         }
     }
 

@@ -1,3 +1,23 @@
 .style {
     font-size: 34px;
 }
+.margin{
+    margin-left: .7cm;
+    margin-right: .7cm;
+    margin-top: .7cm;
+    margin-bottom: 1cm;
+    background-color: white;
+    border-style: solid;
+    border-width: 10px;
+    border-color: whitesmoke;
+    border-radius: 5px;
+}
+#bodyDiv {
+    background-image: url(http://cdn.wccftech.com/wp-content/uploads/2016/09/spacee.jpg);
+    background-size: cover;
+}
+
+#searchTitle{
+    font-size: 18px;
+}
+
