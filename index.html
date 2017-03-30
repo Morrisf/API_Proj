@@ -13,33 +13,26 @@
 <body id="bodyDiv">
 <div class ="margin">
 <div class="form-group">
-    <label id="searchTitle"for="numlaunches">Search for Upcoming Launches</label>
+    <h2 id="mainTitle">Search for upcoming rocket launches</h2>
+    <h4 id="subTitle">Input a custom quantity or choose a quick search option</h4>
     <input type="text" class="form-control" id="numlaunches">
 </div>
+    <button type="button" class="btn btn-primary" id="launchSearch">Next Launches</button>
 
 
-<div id="mainSearchContainer" class="btn-group">
-    <button type="button" id="search" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search
-    <span class="caret"></span>
-    </button>
-    <ul id="searchOptions" class="dropdown-menu">
-        <li><a class="dropdown-item" href="#">Rocket Type</a></li>
-        <li><a class="dropdown-item" href="#">Launch Agency</a></li>
-        <li><a class="dropdown-item" href="#">Next Launches</a></li>
-    </ul>
-</div>
-
-<h4>Quick Search</h4>
+<h3 class="title">Quick Search</h3>
 <button type="button" id="search5" class=" btn btn-primary">Next 5 Launches</button>
 <button type="button" id="search10" class=" btn btn-primary">Next 10 Launches</button>
 
 <div class="container" id="outputDad">
-    <h4>Results</h4>
+    <h3 class="title">Results</h3>
     <div id="output" class="btn-group-vertical"></div>
 </div>
 
-
-<div id="display"></div>
+<div id="displayWrap">
+    <h4>Launch Description</h4>
+    <div id="display"></div>
+</div>
 
 
 

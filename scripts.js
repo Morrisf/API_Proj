@@ -2,7 +2,7 @@
  * Created by h205p3 on 2/7/17.
  */
 $(document).ready(function() {
-    $("#search").click(function() {
+    $("#launchSearch").click(function() {
         $("#output").empty();
         $("#display").empty();
 
@@ -72,7 +72,7 @@ function output(result, request){
             document.getElementById("output").appendChild(button);
         }
         for (var i = 0; i < document.getElementById("numlaunches").value; i++) {
-            document.getElementById("button" + i).className = " btn btn-success"
+            document.getElementById("button" + i).className = " btn btn-primary"
         }
         var header = document.createElement("h4");
         var headContent = document.createTextNode("Results");
@@ -121,7 +121,6 @@ function display(id, result){
     else{
         document.getElementById("display").innerHTML = result.launches[realID].missions[0].name + " is launching on a " + result.launches[realID].rocket.name + " rocket. It will launch between " + result.launches[realID].windowstart + " and " + result.launches[realID].windowend + ". " + result.launches[realID].missions[0].description
     }
-    $("#outputDad").show();
 }
 
 
